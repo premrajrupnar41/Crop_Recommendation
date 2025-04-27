@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="login.css">   
+    <title>Login Page</title>
+
+<body
+    style="background: url('{{ url_for('static', filename='new.jpg') }}') no-repeat center center fixed; background-size: cover;">
+</body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        background: url('https://source.unsplash.com/1600x900/?farm') no-repeat center center/cover;
+    }
+
+    .login-box{
+    width: 320px;
+    height: 370px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+    input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: blue;
+        color: white;
+        margin: 5px 0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+    <div class="login-box">
+        <h1>Login Here</h1>
+            <!-- Updated form tag with POST method -->
+            <form method="POST" action="/login">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button class="btn btn-outline-success" type="submit">Login</button>
+            </form>
+            <form method="GET" action="/register">
+                <button class="btn btn-outline-success" type="submit">Register</button>
+            </form>
+    </div>
+
+
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <script>
+      alert("{{ messages[0] }}");  // Show flash message as popup
+    </script>
+  {% endif %}
+{% endwith %}
+    <!-- <script>
+        function loginRedirect() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            
+            // You can add custom validation here
+            if (username === "" || password === "") {
+                alert("Please fill in both fields.");
+            } else {
+                // Redirect to the login processing route (backend will handle this)
+                window.location.href = "/login?username=" + username + "&password=" + password;
+            }
+        }
+    </script> -->
+    
+
+    // <!-- <script>
+    //     function loginRedirect(event) {
+    //         event.preventDefault();
+    //         window.location.href = "index.html"; // redirect to login page
+    //     }
+    // </script> -->
+
+
+    <script>
+        function registerRedirect(event) {
+            event.preventDefault();
+            window.location.href = "register.html"; // redirect to login page
+        }
+    </script>
+
+</body>
+
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+body {
+    background: url("Crop.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+/* Center the Chart */
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust height */
+}
+
+/* Optional: Set max width for responsiveness */
+canvas {
+    max-width: 600px;
+    width: 100%;
+}
+
+

@@ -1,0 +1,285 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crop Recommendation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Ensure full viewport height */
+        .full-height {
+            min-height: 60vh;
+        }
+    </style>
+</head>
+<body style="background: url('{{ url_for('static', filename='back.jpg') }}') no-repeat center center fixed; background-size: cover;">
+
+    <div class="container text-center mt-5">
+     
+        <h1 class="mb-4"style= "color: white;" >Crop Recommendation System <span class="text-success"></span></h1>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">  
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AgriAI Advisor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#">HOME</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href ='about.html'>ABOUT US</a>
+                      </li>
+                      
+                    <li class="nav-item"><a class="nav-link active" href="#">SHOP NOW</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">NEWS</a></li>
+                </ul>
+                <form class="d-flex" role="search" onsubmit="logoutRedirect(event)">
+                    <button class="btn btn-outline-success" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container d-flex justify-content-center align-items-center full-height">
+        <div class="row">
+            <div class="col-md-6 d-flex justify-content-center mb-3">
+                <div class="card border-primary text-center" style="max-width: 18rem;">
+                    <div class="card-header">Prediction</div>
+                    <div class="card-body text-primary">
+                       
+                        <a href="#" class="btn btn-primary" onclick="openPredictPage()">Go For Predict</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center mb-3">
+                <div class="card border-primary text-center" style="max-width: 18rem;">
+                    <div class="card-header">Search</div>
+                    <div class="card-body text-primary">
+                        <a href="#" class="btn btn-primary" onclick="openSearchPage()">Go For Search</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    <script>
+        function openPredictPage() {
+            window.location.href = "predict.html";
+        }
+    </script>
+    <script>
+        function openSearchPage() {
+            window.location.href = "search.html";
+        }
+    </script>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function logoutRedirect(event) {
+            event.preventDefault(); 
+            window.location.href = "login.html"; // redirect to login page
+        }
+    </script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <body style="background: url('{{ url_for('static', filename='image.jpg') }}') no-repeat center center fixed; background-size: cover;">
+  
+    <meta charset="UTF-8">
+    <title>Crop Recommendation System</title>
+    <style>
+    
+  
+     .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px; /* Control the maximum width */
+  width: 90%;         /* Responsive width */
+  margin: 0 auto;     /* Center it horizontally */
+  padding: 20px;      /* Add some internal spacing */
+}
+  
+
+    
+      .button-group {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 50px;
+        margin-left: 570px;
+      }
+  
+      .button-group button {
+        padding: 20px 20px;
+        font-size: 16px;
+      }
+
+    /* Top Navbar */
+    .navbar {
+      /* background-color: #006666; */
+      background-color: #0e0f0f;
+      color: white;
+      padding: 15px 20px;
+      font-size: 20px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      background-color: #e0e0e0;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .breadcrumb a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* Content */
+    .container {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #004d4d;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .tags {
+      margin-top: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #eee;
+      padding: 6px 12px;
+      margin: 5px 5px 0 0;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 250px;
+      height: 100%;
+      background-color: #0e0f0f;
+      color: white;
+      padding: 60px 20px;
+      transition: left 0.3s;
+      z-index: 999;
+    }
+
+    .sidebar a {
+      display: block;
+      margin: 15px 0;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Toggle Button */
+    .toggle-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: 2px solid white;
+      color: white;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 1000;
+    }
+
+    .show-sidebar {
+      left: 0;
+    }
+
+   
+  </style>
+
+</head>
+
+<body>
+
+  <div class="navbar">
+    CROP RECOMMENDATION SYSTEM 🌱
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <a class="nav-link active" href ='about.html'>ABOUT US</a>
+    <a href="#">NEWS</a>
+    <a class="nav-link active" href ='login.html'>LOGOUT</a>
+  </div>
+ 
+  
+  
+  <div class="container">
+      <p style="color: #090909;">
+          <strong>
+        Agriculture plays a critical role in the economy of many countries, especially in developing nations.
+        However, farmers often lack access to scientific methods for choosing the right crop based on environmental
+        and soil conditions. A crop recommendation and prediction system uses data analytics and machine learning
+        to analyze factors like soil type, moisture, pH, temperature, and rainfall to suggest the most suitable
+        crop for a particular region.
+        </strong>
+      </p>
+      </style>
+    </div>
+  
+  <div class="button-group">
+    <button onclick="location.href='predict.html'">Go For Predict</button>
+    <button onclick="location.href='search.html'">Go For Search</button>
+  </div>
+</div>
+  
+
+  
+  </body>
+
+
+</head>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('show-sidebar');
+    }
+  </script>
+</body>
+</html>
+
+
